@@ -4,11 +4,13 @@ import { prisma } from "@/lib/prisma"
 // GET /api/service-requests/[id] - Get a specific service request
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     const serviceRequest = await prisma.serviceRequest.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         serviceProvider: true
       }
@@ -34,9 +36,11 @@ export async function GET(
 // PATCH /api/service-requests/[id] - Update a service request (e.g., change status)
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     const body = await request.json()
     
     const updateData: any = {}
@@ -53,7 +57,7 @@ export async function PATCH(
     }
 
     const serviceRequest = await prisma.serviceRequest.update({
-      where: { id: params.id },
+      where: { id },
       data: updateData,
       include: {
         serviceProvider: true
@@ -73,11 +77,13 @@ export async function PATCH(
 // DELETE /api/service-requests/[id] - Delete/Cancel a service request
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     await prisma.serviceRequest.delete({
-      where: { id: params.id }
+      where: { id }
     })
 
     return NextResponse.json({ message: "Service request deleted successfully" })

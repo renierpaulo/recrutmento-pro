@@ -4,11 +4,13 @@ import { prisma } from "@/lib/prisma"
 // GET /api/service-providers/[id] - Get a specific service provider
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     const provider = await prisma.serviceProvider.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         serviceRequests: {
           orderBy: { createdAt: 'desc' },
@@ -37,9 +39,11 @@ export async function GET(
 // PATCH /api/service-providers/[id] - Update a service provider
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     const body = await request.json()
     
     const updateData: any = {}
@@ -55,7 +59,7 @@ export async function PATCH(
     if (body.portfolio !== undefined) updateData.portfolio = body.portfolio
 
     const provider = await prisma.serviceProvider.update({
-      where: { id: params.id },
+      where: { id },
       data: updateData
     })
 
@@ -72,11 +76,13 @@ export async function PATCH(
 // DELETE /api/service-providers/[id] - Delete a service provider
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
+
     await prisma.serviceProvider.delete({
-      where: { id: params.id }
+      where: { id }
     })
 
     return NextResponse.json({ message: "Service provider deleted successfully" })
