@@ -15,12 +15,28 @@ export async function POST(req: Request) {
       )
     }
 
+    const userId = session.user.id
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: "Usuário sem identificador válido" },
+        { status: 400 }
+      )
+    }
+
     const body = await req.json()
     const { priceId, plan } = body
 
+    if (!stripe) {
+      return NextResponse.json(
+        { error: "Pagamentos não estão configurados no servidor." },
+        { status: 500 }
+      )
+    }
+
     // Check if user already has a subscription
     let subscription = await prisma.subscription.findUnique({
-      where: { userId: session.user.id },
+      where: { userId },
     })
 
     let customerId: string
@@ -32,7 +48,7 @@ export async function POST(req: Request) {
       const customer = await stripe.customers.create({
         email: session.user.email || undefined,
         metadata: {
-          userId: session.user.id!,
+          userId,
         },
       })
 
@@ -41,7 +57,7 @@ export async function POST(req: Request) {
       // Create subscription record
       await prisma.subscription.create({
         data: {
-          userId: session.user.id,
+          userId,
           stripeCustomerId: customerId,
           plan,
           status: "INCOMPLETE",
@@ -63,7 +79,7 @@ export async function POST(req: Request) {
       success_url: `${process.env.NEXTAUTH_URL}/assinatura?success=true`,
       cancel_url: `${process.env.NEXTAUTH_URL}/assinatura?canceled=true`,
       metadata: {
-        userId: session.user.id!,
+        userId,
         plan,
       },
     })
