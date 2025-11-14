@@ -21,22 +21,38 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/para-candidatos">
-                <Button size="lg" variant="secondary">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="rounded-full px-6 font-semibold text-blue-700 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition"
+                >
                   Procurar emprego
                 </Button>
               </Link>
               <Link href="/para-empresas">
-                <Button size="lg" variant="outline" className="bg-white text-blue-600 hover:bg-gray-100">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-6 font-semibold border-white/80 text-white bg-white/5 hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
+                >
                   Procurar funcionário
                 </Button>
               </Link>
               <Link href="/para-contratar-servicos">
-                <Button size="lg" variant="secondary">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-6 font-semibold border-white/80 text-white bg-white/5 hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
+                >
                   Contratar prestador
                 </Button>
               </Link>
               <Link href="/para-prestadores">
-                <Button size="lg" variant="ghost" className="text-white border border-white/40">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-6 font-semibold border-white text-white bg-transparent hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
+                >
                   Anunciar meus serviços
                 </Button>
               </Link>
