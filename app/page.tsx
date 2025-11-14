@@ -23,8 +23,8 @@ export default function Home() {
               <Link href="/para-candidatos">
                 <Button
                   size="lg"
-                  variant="secondary"
-                  className="rounded-full px-6 font-semibold text-blue-700 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition"
+                  variant="outline"
+                  className="rounded-full px-6 font-semibold border-white text-white bg-transparent hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
                 >
                   Procurar emprego
                 </Button>
@@ -33,7 +33,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-6 font-semibold border-white/80 text-white bg-white/5 hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
+                  className="rounded-full px-6 font-semibold border-white text-white bg-transparent hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
                 >
                   Procurar funcionário
                 </Button>
@@ -42,7 +42,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-6 font-semibold border-white/80 text-white bg-white/5 hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
+                  className="rounded-full px-6 font-semibold border-white text-white bg-transparent hover:bg-white hover:text-blue-700 hover:-translate-y-0.5 shadow-sm hover:shadow-lg transition"
                 >
                   Contratar prestador
                 </Button>
