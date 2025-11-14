@@ -10,47 +10,18 @@ import { CheckCircle, Crown } from "lucide-react"
 
 const plans = [
   {
-    name: "Básico",
-    price: "R$ 29",
-    priceId: "price_basic", // Substituir com ID real do Stripe
-    plan: "basic",
-    description: "Para candidatos iniciantes",
+    name: "Plano Prestador de Serviço",
+    price: "R$ 9,90",
+    priceId: "price_prestador", // Substituir com ID real do Stripe
+    plan: "service_provider",
+    description: "Para profissionais que querem anunciar seus serviços na plataforma",
     features: [
-      "Até 10 candidaturas/mês",
-      "Perfil básico",
-      "Alertas de vagas",
-      "Suporte por email",
-    ],
-  },
-  {
-    name: "Profissional",
-    price: "R$ 99",
-    priceId: "price_professional", // Substituir com ID real do Stripe
-    plan: "professional",
-    description: "Para empresas em crescimento",
-    features: [
-      "Candidaturas ilimitadas",
-      "Até 5 vagas ativas",
-      "Destaque no perfil",
-      "Analytics básico",
-      "Suporte prioritário",
+      "Perfil profissional visível na área de serviços",
+      "Aparece nas buscas por categoria e localização",
+      "Receba solicitações diretas de clientes",
+      "Cancele quando quiser",
     ],
     popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "R$ 299",
-    priceId: "price_enterprise", // Substituir com ID real do Stripe
-    plan: "enterprise",
-    description: "Para grandes empresas",
-    features: [
-      "Vagas ilimitadas",
-      "Prioridade na busca",
-      "Analytics avançado",
-      "API access",
-      "Suporte dedicado",
-      "Treinamento personalizado",
-    ],
   },
 ]
 
@@ -108,14 +79,14 @@ export default function SubscriptionPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Escolha seu Plano
+            Plano para Prestadores de Serviço
           </h1>
           <p className="text-xl text-gray-600">
-            Selecione o plano ideal para suas necessidades
+            Anuncie seus serviços na plataforma por um valor mensal acessível
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           {plans.map((plan) => (
             <Card
               key={plan.plan}

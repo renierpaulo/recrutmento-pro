@@ -17,23 +17,27 @@ export default function Home() {
               Sine Santa Maria - Conectando Pessoas e Oportunidades
             </h1>
             <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-              A plataforma completa de recrutamento e contratação de mão de obra especializada.
-              Encontre a vaga ideal, o candidato perfeito ou contrate profissionais especializados.
+              Encontre emprego, contrate funcionários ou profissionais especializados em um único lugar.
             </p>
-            <div className="flex gap-4 justify-center">
-              <Link href="/registro?role=candidate">
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/para-candidatos">
                 <Button size="lg" variant="secondary">
-                  Sou Candidato
+                  Procurar emprego
                 </Button>
               </Link>
-              <Link href="/registro?role=company">
+              <Link href="/para-empresas">
                 <Button size="lg" variant="outline" className="bg-white text-blue-600 hover:bg-gray-100">
-                  Sou Empresa
+                  Procurar funcionário
                 </Button>
               </Link>
-              <Link href="/servicos">
+              <Link href="/para-contratar-servicos">
                 <Button size="lg" variant="secondary">
-                  Contratar Mão de Obra
+                  Contratar prestador
+                </Button>
+              </Link>
+              <Link href="/para-prestadores">
+                <Button size="lg" variant="ghost" className="text-white border border-white/40">
+                  Anunciar meus serviços
                 </Button>
               </Link>
             </div>
@@ -158,36 +162,55 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Planos e Preços
+              Como funciona a cobrança
             </h2>
             <p className="text-gray-600">
-              Escolha o plano ideal para seu perfil
+              Modelo simples e transparente para cada tipo de usuário
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle>Básico</CardTitle>
-                <CardDescription>Para candidatos iniciantes</CardDescription>
+                <CardTitle>Quem busca emprego</CardTitle>
+                <CardDescription>Criação de conta e candidaturas</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">R$ 29</span>
-                  <span className="text-gray-600">/mês</span>
+                  <span className="text-4xl font-bold">R$ 0</span>
+                  <span className="text-gray-600">/sempre</span>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Até 10 candidaturas/mês
+                    Criar conta e perfil profissional
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Perfil básico
+                    Buscar vagas e se candidatar sem limites
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Quem quer contratar funcionário</CardTitle>
+                <CardDescription>Empresas que publicam vagas</CardDescription>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold">R$ 49,90</span>
+                  <span className="text-gray-600">/vaga publicada</span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  <li className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    Pague apenas quando precisar anunciar
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Alertas de vagas
+                    Vagas divulgadas para candidatos qualificados
                   </li>
                 </ul>
               </CardContent>
@@ -195,10 +218,10 @@ export default function Home() {
 
             <Card className="border-blue-600 border-2">
               <CardHeader>
-                <CardTitle>Profissional</CardTitle>
-                <CardDescription>Para empresas em crescimento</CardDescription>
+                <CardTitle>Prestadores de serviço</CardTitle>
+                <CardDescription>Quem anuncia sua mão de obra</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">R$ 99</span>
+                  <span className="text-4xl font-bold">R$ 9,90</span>
                   <span className="text-gray-600">/mês</span>
                 </div>
               </CardHeader>
@@ -206,15 +229,11 @@ export default function Home() {
                 <ul className="space-y-2">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Candidaturas ilimitadas
+                    Perfil profissional em destaque na área de serviços
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Até 5 vagas ativas
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Destaque no perfil
+                    Receba solicitações diretas de clientes
                   </li>
                 </ul>
               </CardContent>
@@ -222,26 +241,22 @@ export default function Home() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Enterprise</CardTitle>
-                <CardDescription>Para grandes empresas</CardDescription>
+                <CardTitle>Quem contrata prestadores</CardTitle>
+                <CardDescription>Clientes que buscam serviços</CardDescription>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">R$ 299</span>
-                  <span className="text-gray-600">/mês</span>
+                  <span className="text-4xl font-bold">R$ 0</span>
+                  <span className="text-gray-600">/sempre</span>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Vagas ilimitadas
+                    Navegar e buscar profissionais por categoria
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Prioridade na busca
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                    Suporte dedicado
+                    Solicitar orçamentos sem pagar taxa à plataforma
                   </li>
                 </ul>
               </CardContent>
